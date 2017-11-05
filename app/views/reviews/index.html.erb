@@ -1,0 +1,12 @@
+<!-- Run a ruby loop for each restaurant review  -->
+<!-- This line will loop through each review and execute code -->
+<% @reviews.each do |review| %>
+
+  <div class="review">
+    <!-- This line will output the loop above on HTML, printing review -->
+    <!--review.title will show the tile to user's review (instead of review id)  -->
+    <!-- create a link for each review title added and take it there -->
+    <%= link_to review.title, review_path(review) %>
+  </div>
+
+<% end %>
