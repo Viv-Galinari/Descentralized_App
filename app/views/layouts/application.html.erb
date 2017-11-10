@@ -3,31 +3,30 @@
   <head>
     <title>Bien</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <!-- The code here will be visible across all pages -->
+  <!-- Add new headers, nav, body functions and footer within body tag to be displayed everywhere -->
+  <!-- Use ruby helper(link_to) to make h1 logo a link, directed to the homepage (root_path) -->
   <body>
-  <header>
-    <!-- Use helper to make h1 a link, directed to the homepage root_path -->
-    <h1>
-      <%=link_to root_path do%>
-        <%= image_tag "bien-logo.svg" %>
-      <% end %>
-    </h1>
-    <h2>The best restaurant in the world </h2>
-    <nav>
-      <%= link_to "Add a review", new_review_path%>
-    </nav>
+    <header>
+      <h1>
+        <%=link_to root_path do %>
+          <%= image_tag "bien-logo.svg" %>
+        <% end %>
+      </h1>
+      <h2>The best restaurant in the world </h2>
+      <nav>
+        <%= link_to "Add a review", new_review_path%>
+      </nav>
+    </header>
 
-  </header>
+      <%= yield %>
 
-
-    <%= yield %>
-
-</footer>
-  Copyright 2017
-</footer>
-  </body>
+    </footer>
+      Copyright 2017
+    </footer>
+</body>
 </html>

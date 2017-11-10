@@ -1,0 +1,34 @@
+<%= form_for @review do |f| %>
+
+  <!-- This ruby tag will check for errors when submiting review and display it -->
+  <% if @review.errors.any? %>
+
+  <div class="errors">
+    <!-- full.messages is part of ruby's validation's docs -->
+    <% @review.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+
+  </div>
+
+
+  <% end %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.label :score %>
+    <%= f.number_field :score %>
+  </p>
+
+  <%= f.submit "Save review" %>
+
+<% end %>

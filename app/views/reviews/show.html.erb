@@ -1,4 +1,6 @@
-<h1><%=@review.title%> </h1>
+<!-- This is the HTML page to see an individual review -->
+<!-- User ruby's simple_format to see paragraphs -->
+<h1><%=@review.title%></h1>
 
 <div class="score">
   <%=@review.score%> / 10
@@ -8,8 +10,10 @@
   <%= simple_format @review.body%>
 </div>
 
-<!-- Link review to edit form and update row on database-->
+<!-- Once user see the review, has the options of editing or deleting it -->
+<!-- Link actions to right path -->
+<!-- Update actions in the database-->
 <div class="actions">
-  <%= link_to "Edit this review", edit_review(@review) %>
+  <%= link_to "Edit this review", edit_review_path(@review) %>
   <%= link_to "Delete this review", review_path(@review), method: :delete, data: { confirm: "Are you sure?"} %>
 </div>

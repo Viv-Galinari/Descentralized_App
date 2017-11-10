@@ -9,29 +9,37 @@ class ReviewsController < ApplicationController
   end
 
   # This is the form for adding a new review
-  def new #define a new page
-    @review = Review.new #
+  # define a new page
+  def new
+    @review = Review.new
   end
 
-  # Take the infor from the form and add to the database (
-  # create a new row in the database
+  # To create a new review
+  # Take the information from the form and add to the database
+  # this will create a new row in the database
+  # Use params to require reviews, allowing users to only add 3 things
+  # Symblos are variables that dont change
   def create
-    # Use params to require reviews, allowing users to only add 3 things
-    # Symblos are variables that dont change
     @review = Review.new(form_params)
 
-    # save this to the database
-    @review.save
+    # we want to check if the model can be saved
+    # if can be saved, go to homepage again
+    # with every if statement there is an end
+    #  if can't be saved, show the view for new.html.erb
+    if @review.save
+      redirect_to root_path
+    else
+      render "new"
+    end
 
-    # redirect back to the homepage
-    redirect_to root_path
   end
 
-  # Individual review page
+  # To show an individual review page
   def show
     @review= Review.find(params[:id])
   end
 
+# To delete a review
 # Find the individual review
 # destroy (delete) review
 # redirect to the homepage
@@ -41,16 +49,24 @@ class ReviewsController < ApplicationController
     redirect_to root_path
   end
 
-# Find individual review to edit it
+# To find an individual review and to edit it
   def edit
     @review = Review.find(params[:id])
   end
 
-  # Update review to database
-  def
+  # To update review a review
+  # find the individual review
+  # update database with the new info from the form
+  # redirect somewhere new
+  # If there is any validation error when inputing the review
+  # redirect user to edit page
+  def update
     @review = Review.find(params[:id])
-    @review.update(form_params)
-    redirect_to review_path(@review)
+       if @review.update(form_params)
+      redirect_to review_path(@review)
+    else
+      render "edit"
+    end
   end
 
   def form_params

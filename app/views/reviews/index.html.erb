@@ -1,11 +1,11 @@
-<!-- Run a ruby loop for each restaurant review  -->
-<!-- This line will loop through each review and execute code -->
+<!-- Index is just the list of all reviews. -->
+<!-- The structure of all page are in the Layout /application.html.erb -->
+<!-- Run a ruby loop for each restaurant review and execute code -->
+<!-- Output the loop on the HTML, printing the review title (instead of review id)-->
+<!-- create a link for each review title so users can click and see it there -->
 <% @reviews.each do |review| %>
 
   <div class="review">
-    <!-- This line will output the loop above on HTML, printing review -->
-    <!--review.title will show the tile to user's review (instead of review id)  -->
-    <!-- create a link for each review title added and take it there -->
     <%= link_to review.title, review_path(review) %>
   </div>
 
