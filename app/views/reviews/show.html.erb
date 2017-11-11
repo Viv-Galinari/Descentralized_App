@@ -1,6 +1,12 @@
+<!-- Take this information and print in the layout / applictions page -->
+<!-- This will change the URL to the review title, making SEO friendly -->
+<% content_for :page_title, @review.title %>
+
+
 <!-- This is the HTML page to see an individual review -->
 <!-- User ruby's simple_format to see paragraphs -->
 <h1><%=@review.title%></h1>
+<h2><%=@review.restaurant%></h2>
 
 <div class="score">
   <%=@review.score%> / 10
@@ -9,6 +15,13 @@
 <div class="body">
   <%= simple_format @review.body%>
 </div>
+
+<!-- Write an if statement to only show ambiance review if there is any -->
+<% if @review.ambiance.present? %>
+  <div class="ambiance">
+    Ambiance: <%= @review.ambiance %>
+  </div>
+<% end %>
 
 <!-- Once user see the review, has the options of editing or deleting it -->
 <!-- Link actions to right path -->
