@@ -6,7 +6,9 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       t.integer :score
       t.string :restaurant
       t.integer :price
-      t.string :cousine
+      t.string :cuisine
+      t.string :phone_number
+      t.string :ambiance
 
       t.timestamps
     end

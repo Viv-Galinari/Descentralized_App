@@ -23,6 +23,18 @@
   </div>
 <% end %>
 
+<% if @review.cuisine.present? %>
+<div class="cuisine">
+  Cuisine: <%= @review.cuisine %>
+</div>
+<% end %>
+
+<% if @review.price.present? %>
+<div class="price">
+  Price: <%= @review.price %>
+</div>
+<% end %>
+
 <!-- Once user see the review, has the options of editing or deleting it -->
 <!-- Link actions to right path -->
 <!-- Update actions in the database-->

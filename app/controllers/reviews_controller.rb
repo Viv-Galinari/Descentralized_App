@@ -1,11 +1,30 @@
 class ReviewsController < ApplicationController
 
+  # Index is our list page for our reviews
+  # We only want a list of all of the reviews if there is no filter
   def index
-    # This is our list page for our reviews
 
-   @number = rand(100)
+    # We create filters so user can filter content
+    # Filters are created by using params(such as price filter)
+    @price = params[:price]
+    @cuisine = params[:cuisine]
 
-   @reviews = Review.all
+    # start with all reviews
+    @reviews = Review.all
+
+    # Filter by price
+    # Run if statement to check if there is price
+      if @price.present?
+        # Set variable to show all reviews that have certain price to it
+        # if there is price, get all of these reviews (@reviews = Review.all)
+        # And replace to reviews where there is a price
+          @reviews = reviews.where(price: @price)
+
+        # Filter by cuisine
+        if cuisine.present?
+          @reviews = reviews.where(cuisine: @cuisine)
+        end
+
   end
 
   # This is the form for adding a new review
@@ -70,7 +89,7 @@ class ReviewsController < ApplicationController
   end
 
   def form_params
-    params.require(:review).permit(:title,:restaurant, :ambiance, :body, :score)
+    params.require(:review).permit(:title,:restaurant, :ambiance, :body, :score, :price, :cuisine)
   end
 
 end

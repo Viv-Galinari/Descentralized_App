@@ -6,7 +6,9 @@ one:
   score: 1
   restaurant: MyString
   price: 1
-  cousine: MyString
+  cuisine: MyString
+  phone_number: MyString
+  ambiance: MyString
 
 two:
   title: MyString
@@ -14,4 +16,6 @@ two:
   score: 1
   restaurant: MyString
   price: 1
-  cousine: MyString
+  cuisine: MyString
+  phone_number: MyString
+  ambiance: MyString

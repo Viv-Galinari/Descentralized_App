@@ -1,3 +1,16 @@
+<% content_for :page_title, "Homepage" %>
+
+<nav class="filters">
+  <%= link_to "All restaurants", root_path%>
+  <%= link_to "$", root_path(price: 1, cuisine: @cuisine) %>
+  <%= link_to "$$", root_path(price: 2, cuisine: @cuisine) %>
+  <%= link_to "$$$", root_path(price: 3, cuisine: @cuisine) %>
+
+  <%= link_to "Indian", root_path(cuisine: "Indian", price: @price) %>
+  <%= link_to "American", root_path(cuisine: "American", price: @price) %>
+  <%= link_to "Mexican", root_path(cuisine: "Mexican", price: @price) %>
+</nav>
+
 <!-- Index is just the list of all reviews. -->
 <!-- The structure of all page are in the Layout /application.html.erb -->
 <!-- Run a ruby loop for each restaurant review and execute code -->

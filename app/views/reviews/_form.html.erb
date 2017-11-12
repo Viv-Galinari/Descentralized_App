@@ -3,14 +3,13 @@
   <!-- This ruby tag will check for errors when submiting review and display it -->
   <% if @review.errors.any? %>
 
-  <div class="errors">
-    <!-- full.messages is part of ruby's validation's docs -->
-    <% @review.errors.full_messages.each do |message| %>
-      <p><%= message %></p>
-    <% end %>
+    <div class="errors">
+      <!-- full.messages is part of ruby's validation's docs -->
+      <% @review.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
 
-  </div>
-
+    </div>
 
   <% end %>
 
@@ -28,6 +27,17 @@
     <%= f.label :body %>
     <%= f.text_area :body %>
   </p>
+
+  <p>
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine %>
+  </p>
+
+  <p>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </p>
+
 
   <p>
     <%= f.label :score %>
