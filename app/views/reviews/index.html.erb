@@ -1,21 +1,40 @@
+<!-- content_for take this information and print in the layout / applictions page -->
+<!-- This will change the URL to the review title, making SEO friendly -->
 <% content_for :page_title, "Homepage" %>
 
 <nav class="filters">
   <%= link_to "All restaurants", root_path%>
-  <%= link_to "$", root_path(price: 1, cuisine: @cuisine) %>
-  <%= link_to "$$", root_path(price: 2, cuisine: @cuisine) %>
-  <%= link_to "$$$", root_path(price: 3, cuisine: @cuisine) %>
 
-  <%= link_to "Indian", root_path(cuisine: "Indian", price: @price) %>
-  <%= link_to "American", root_path(cuisine: "American", price: @price) %>
-  <%= link_to "Mexican", root_path(cuisine: "Mexican", price: @price) %>
+  <div>
+    <%= link_to "$", root_path(price: 1, cuisine: @cuisine, location: @location) %>
+    <%= link_to "$$", root_path(price: 2, cuisine: @cuisine, location: @location) %>
+    <%= link_to "$$$", root_path(price: 3, cuisine: @cuisine, location: @location) %>
+  </div>
+
+  <div>
+    <%= link_to "Indian", root_path(cuisine: "Indian", price: @price) %>
+    <%= link_to "American", root_path(cuisine: "American", price: @price) %>
+    <%= link_to "Mexican", root_path(cuisine: "Mexican", price: @price) %>
+  </div>
 </nav>
 
-<!-- Index is just the list of all reviews. -->
-<!-- The structure of all page are in the Layout /application.html.erb -->
+<!-- Search box -->
+<!-- value equal ruby tag for location so location stays in the box when searching -->
+<form action="/">
+  <input type="text" name="location" placeholder="Search location..."
+      value="<%= @location%>">
+
+  <input type="hidden" name="price" value="<%= @price%>">
+
+  <input type="hidden" name="cuisine" value="<%= @cuisine%>">
+
+</form>
+
+<!-- Index is just the list of all reviews -->
+<!-- The structure of all pages are in the Layout /application.html.erb -->
 <!-- Run a ruby loop for each restaurant review and execute code -->
 <!-- Output the loop on the HTML, printing the review title (instead of review id)-->
-<!-- create a link for each review title so users can click and see it there -->
+<!-- create a link for each review title so users can click and see the content -->
 <% @reviews.each do |review| %>
 
   <div class="review">

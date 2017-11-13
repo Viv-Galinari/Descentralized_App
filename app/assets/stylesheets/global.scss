@@ -50,3 +50,44 @@ footer {
   font-size: 14px;
   color: #999;
 }
+
+
+nav.filters {
+  margin: 0 0 20px 0;
+  padding: 0 0 10px 0;
+  font-size: 14px;
+  border-bottom: 2px solid $lightyellow;
+
+  display: flex;
+  align-items: center;
+
+  a {
+    margin: 0 5px 0 0;
+    text-decoration: none;
+    color: $black;
+
+    &.active {
+      color: $green;
+    }
+  }
+
+  div, form {
+    margin: 0 0 0 25px;
+  }
+
+  input {
+    min-width: 200px;
+    font-size: 14px;
+    padding: 4px 5px;
+  }
+}
+
+.comment {
+  font-size: 14px;
+  border-bottom: 2px solid $lightyellow;
+
+  p.posted {
+    color: #999999;
+    font-size: 12px;
+  }
+}

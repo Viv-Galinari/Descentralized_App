@@ -5,10 +5,10 @@
 
     <div class="errors">
       <!-- full.messages is part of ruby's validation's docs -->
+      <!-- we dont have to worry about writing each message as comes with ruby -->
       <% @review.errors.full_messages.each do |message| %>
         <p><%= message %></p>
       <% end %>
-
     </div>
 
   <% end %>
@@ -21,6 +21,11 @@
   <p>
     <%= f.label :restaurant %>
     <%= f.text_field :restaurant %>
+  </p>
+
+  <p>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
   </p>
 
   <p>
@@ -37,7 +42,6 @@
     <%= f.label :price %>
     <%= f.number_field :price %>
   </p>
-
 
   <p>
     <%= f.label :score %>
