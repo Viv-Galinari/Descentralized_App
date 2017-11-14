@@ -14,7 +14,6 @@ group :development do
   gem 'sqlite3'
 end
 
-# Use pg as the database when we are producing app
 group :production do
   gem 'pg'
 end
@@ -47,6 +46,9 @@ gem 'simple_form'
 
 # make our links Active
 gem 'active_link_to'
+
+# hide swearing words
+gem 'profanity_filter'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -93,9 +93,9 @@ end
      end
    end
 
-  def form_params
-     params.require(:review).permit(:title, :restaurant, :body, :score,
-       :ambiance, :cuisine, :price, :address)
-   end
+   def form_params
+       params.require(:review).permit(:title, :restaurant, :body, :score,
+         :ambiance, :cuisine, :price, :address)
+     end
 
  end

@@ -37,9 +37,16 @@
 <!-- Output the loop on the HTML, printing the review title (instead of review id)-->
 <!-- create a link for each review title so users can click and see the content -->
 <% @reviews.each do |review| %>
-
   <div class="review">
-    <%= link_to review.title, review_path(review) %>
-  </div>
+    <%= link_to review_path(review) do %>
 
+      <h2><%= review.title %></h2>
+      <p>
+        <%= review.cuisine %> –
+        <%= pluralize review.comments.count, "comment" %>
+      </p>
+
+
+    <% end %>
+  </div>
 <% end %>
