@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :reviews
+# tidy up comments to reviews routes
+  resources :reviews do
+    resources :comments
+
+  end
 
   root "reviews#index"
 

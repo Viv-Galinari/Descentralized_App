@@ -1,5 +1,8 @@
 class Review < ApplicationRecord
 
+  # Add an association between the Review and many comments (1-to-many relationship)
+  has_many :comments
+
   # Added Geocode from github
   geocoded_by :address
 	after_validation :geocode
