@@ -12,15 +12,35 @@
   <!-- Use ruby helper(link_to) to make h1 logo a link, directed to the homepage (root_path) -->
   <body>
     <header>
-      <h1>
-        <%=link_to root_path do %>
-          <%= image_tag "bien-logo.svg" %>
-        <% end %>
-      </h1>
-      <h2>The best restaurant in the world </h2>
       <nav>
-        <%= link_to "Add a review", new_review_path%>
+        <h1>
+          <%=link_to root_path do %>
+            <%= image_tag "bien-logo.svg" %>
+          <% end %>
+        </h1>
       </nav>
+      <nav>
+        <!--Check if user is logged in, if so direct to write a review  -->
+        <!-- Otherwise if there is no user, direct to signup and login  -->
+              <% if is_logged_in? %>
+
+                <%= @current_user.username %>
+
+                <% if @current_user.is_admin? %>
+                  <%= link_to "Admin", admin_root_path %>
+                <% end %>
+
+                <%= link_to "Add a review", new_review_path %>
+                <%= link_to "Log out", session_path, method: :delete %>
+
+              <% else %>
+
+                <%= link_to "Sign up", new_user_path %>
+                <%= link_to "Log in", new_session_path %>
+
+              <% end %>
+
+            </nav>
     </header>
 
       <%= yield %>

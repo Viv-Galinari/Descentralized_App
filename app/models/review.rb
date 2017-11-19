@@ -1,8 +1,5 @@
 class Review < ApplicationRecord
 
-  # profanity filter
-  profanity_filter :review, :bar
-
   # Add an association between the Review and many comments (1-to-many relationship)
   has_many :comments
 
