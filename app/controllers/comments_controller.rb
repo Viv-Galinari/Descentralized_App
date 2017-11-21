@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
     # we require that there is some information about the comment within the params
     # and we only allow the body to be submited
     @comment = @review.comments.new(params.require(:comment).permit(:body))
+
+    @comment.user = @current_user
+
     # save comment in the database
     @comment.save
     # redirect to review show page

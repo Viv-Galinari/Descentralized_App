@@ -5,7 +5,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-
+  def show
+    @user = User.find_by(username: params[:id])
+  end
+  
 # create NEW function to add users
 # Define empty user to create a form in views. user variable equal to User Model
   def new

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 # and destroy to remove session (logout)
 
 def new
-
+# login form
 end
 
 def create
@@ -17,23 +17,27 @@ def create
   @password = @form_data[:password]
 
   # lets check the user is who they say they are
-  @user = User.find_by(username:         @username).try(:authenticate, @password)
+  @user = User.find_by(username: @username).try(:authenticate, @password)
 
   # if there is a user present, redirect to home page
   if @user
-  # save this user to that user's session
-  session[:user_id] = @user.id
-  redirect_to root_path
+    # save this user to that user's session
+    session[:user_id] = @user.id
+
+    redirect_to root_path
   else
-           render "new"
+    render "new"
   end
-
- end
-
-# To log out
-def detroy
 
 end
 
+def destroy
+  # log us out!
+  # remove the session completely
+  reset_session
+
+  # redirect to the log in page
+  redirect_to new_session_path
+end  
 
 end
