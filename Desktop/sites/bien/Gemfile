@@ -50,11 +50,18 @@ gem 'active_link_to'
 # hide swearing words
 gem 'profanity_filter'
 
-# upload photos
+# let's add and upload files
 gem 'carrierwave', '~> 1.0'
-
-# resize photos
 gem 'mini_magick'
+gem "fog-aws"
+
+#  add admin panel
+gem 'activeadmin'
+# Plus integrations with:
+gem 'devise'
+gem 'cancan' 
+gem 'draper'
+gem 'pundit'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
