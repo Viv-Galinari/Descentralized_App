@@ -15,7 +15,14 @@ resources :users
 # add resources for sessions
 resource :session
 
+# custom urls for about page and T&C. 'Get' means pull and view page
+get "about", to: "pages#about"
+get "terms", to: "pages#terms"
+get "jobs", to: "pages#jobs"
+
 # lists all reviews as index page
-root "reviews#index"
+root "pages#home"
+
+get "home", to: "pages#home"
 
 end
