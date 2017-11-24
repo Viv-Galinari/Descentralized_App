@@ -28,7 +28,7 @@
 
 <!-- Add a loop to see who has bookedmarked this review -->
 <ul>
-<% @review.bookmarks.each do |bookmark| %>
+<% @reviews.bookmarks.each do |bookmark| %>
   <li><%= bookmark.user.username %></li>
 <% end %>
 </ul>
