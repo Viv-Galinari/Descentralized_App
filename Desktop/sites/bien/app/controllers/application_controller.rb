@@ -45,4 +45,17 @@ def check_admin
   end
 end
 
+# find admin user
+#  first find current user, then check if loggedin AND is_admin
+#  if so, get back user, otherwise 'nil'
+  def find_admin_user
+    @current_user = find_current_user
+
+      if @curent_user.present? and @current_user.is_admin
+        @current_user
+      else
+        nil
+      end
+
+ end
 end
