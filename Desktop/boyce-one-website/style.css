@@ -1,0 +1,168 @@
+body {
+  font-family:  Work Sans;
+  font-size: 16px;
+  line-height: 1.5;
+  color:  #fff;
+  background-color:  #000;
+  padding-top: 104px;
+}
+
+a {
+  color: #fff;
+  text-decoration:  none;
+}
+
+header {
+  position:  fixed;
+  top:  0;
+  left: 0;
+
+  width:  100%;
+  padding:  20px;
+
+  display:  flex;
+  align-items:  center;
+  justify-content:  space-between;
+
+  z-index: 2;
+}
+
+header h1 {
+  width:  64px;
+}
+
+header nav a {
+  margin-left:  10px;
+  transition:  border 0.3s 1s ease-in;
+  padding-bottom:  3px;
+  border-bottom:  solid 2px rgba(0, 0, 0, 0);
+}
+
+header nav a:hover {
+  border-color:  #555;
+}
+
+header nav a.selected {
+  border-color:  #fff;
+
+}
+
+.photos {
+  max-width:  960px;
+  margin-right:  auto;
+  margin-left:  auto;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  display:  flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.photo {
+  width:  320px;
+  margin:  10px;
+  position: relative;
+}
+
+.photo img {
+  transition: filter 0.3s;
+}
+
+.photo:hover img {
+  filter:  grayscale(100%);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width:  100%;
+  height:  100%;
+  background-color: rgba(0,0,0,0.7);
+  opacity: 0 ;
+  transition:  opacity 0.3s;
+
+  z-index:  2;
+}
+
+.photo:hover .overlay {
+  opacity: 1;
+}
+
+.photos h2 {
+  position:  absolute;
+  left:  -15px;
+  top: -15px;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.small {
+  width: 220px;
+}
+
+.large {
+  width:  400px;
+}
+
+footer {
+  display:  flex;
+  justify-content: space-between;
+  align-items:  ceter;
+  padding:  20px;
+}
+
+footer a {
+  margin-left:  5px;
+  width:  32px;
+  display: inline-block;
+}
+
+.list {
+  max-width:  640px;
+  margin:  120px auto 120px auto;
+  font-size:  48px;
+  line-height:  1.2;
+  padding:  20px;
+}
+
+.list a img {
+  opacity:  0;
+  position: fixed;
+  top: 50%;
+  left:  50%;
+  transform:  translate(-50%, -50%);
+  max-width:  500px;
+  transition: opacity 0.3s;
+  pointer-event:  none  ;
+
+}
+
+.list a:hover img {
+  opacity:  1;
+}
+
+.list a:after {
+  content: '/';
+}
+
+.list a:last-child after {
+  contetnt:  " ";
+}
+
+header,
+header h1 {
+  transition: all 0.3s ease;
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+.compact h1 {
+  width: 32px;
+}
