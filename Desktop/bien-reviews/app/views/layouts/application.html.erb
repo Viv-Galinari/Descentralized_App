@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for :page_title %> - Bien Reviews </title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <!-- The code here will be visible across all pages -->
+  <!-- Add new headers, nav, body functions and footer within body tag to be displayed everywhere -->
+  <!-- Use ruby helper(link_to) to make h1 logo a link, directed to the homepage (root_path) -->
+  <body>
+    <header>
+      <nav>
+        <h1>
+          <%= link_to root_path do %>
+            <%= image_tag "bien-logo.svg" %>
+          <% end %>
+        </h1>
+      </nav>
+      <nav>
+        <!--Check if user is logged in, if so direct to write a review  -->
+        <!-- Otherwise if there is no user, direct to signup and login  -->
+        <% if is_logged_in? %>
+
+        <%= @current_user.username %>
+
+        <!-- If current user is admin, display admin dashboard at the navbar -->
+        <% if @current_user.is_admin? %>
+          <%= link_to "Admin", admin_root_path %>
+        <% end %>
+
+
+        <%= link_to "Add a review", new_review_path %>
+        <%= link_to "Log out", session_path, method: :delete %>
+
+      <% else %>
+
+        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Log in", new_session_path %>
+
+      <% end %>
+
+    </nav>
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer>
+    Copyright 2017 Bien Reviews -
+    <%= link_to "About", about_path %>
+    <%= link_to "Terms", terms_path %>
+    <%= link_to "Jobs", jobs_path %>
+  </footer>
+</body>
+</html>
