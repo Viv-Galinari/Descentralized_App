@@ -1,9 +1,0 @@
-<!-- This is a partil file to be rendered on homepage -->
-<p>
-  <%= link_to review.title, review_path(review)%> (<%=review.score / 10%>, rated by
-  <% if review.user.present? %>
-    <%= review.user.username %>
-  <% else %>
-    annoymous
-  <% end %>)
-</p>
